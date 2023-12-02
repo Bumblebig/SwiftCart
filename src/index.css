@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  width: 100%;
+  max-width: 2000px;
+  min-width: 350px;
+  margin: 0px auto;
+  font-family: "Merriweather Sans", sans-serif;
+}
+
+.logo {
+  font-family: "Righteous", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
