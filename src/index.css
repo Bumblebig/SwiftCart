@@ -13,6 +13,7 @@ body {
   max-width: 2000px;
   min-width: 350px;
   margin: 0px auto;
+  overflow-x: hidden;
   font-family: "Merriweather Sans", sans-serif;
 }
 
