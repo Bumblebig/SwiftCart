@@ -1,23 +1,21 @@
 # SwiftCart (work in progress)
 
-SwiftCart is an E-commerce platform where users can go through products, select, add to cart and checkout. Orders are processed through mail and whatsapp.
+## Project Overview
+
+This project is an e-commerce website built using React, Firebase, and Tailwind CSS. Users can view product catalogs, place orders by submitting a form, and contact the administrator for inquiries.
 
 ## Features
 
-- Upload Products
-- View Products
-- Add products to cart
-- Checkout
+- Product Catalog: View a list of available products.
+- Order Placement: Place an order by submitting a form with name, email, and message.
+- User Authentication: (Optional) Users can log in to access additional features.
+- Admin Panel: (Protected) Access an admin panel for managing orders and products.
 
 ## Technologies Used
 
 - React
-- Firebase
-- TailwindCSS
-- Nodemailer
-- JavaScript
-- HTML
-- CSS
+- Firebase (Firestore for data storage)
+- Tailwind CSS
 
 ## Author
 
@@ -26,31 +24,25 @@ SwiftCart is an E-commerce platform where users can go through products, select,
 
 ## Getting Started
 
-### Prerequisites
+1. **Clone the Repository:**
 
-- Node.js and npm should be installed on your system.
+   ```bash
+   git clone https://github.com/your-username/e-commerce-website.git
+   ```
 
-### Installation
-
-1. Clone the repository.
-
-```sh
-git clone https://github.com/Bumblebig/SwiftCart.git
-```
-
-2. Navigate to the project directory
+2. **Navigate to the project directory**
 
 ```sh
 cd SwiftCart
 ```
 
-3. Install the dependencies
+3. **Install the dependencies**
 
 ```sh
 npm install
 ```
 
-4. Start the development server
+4. **Start the development server**
 
 ```sh
 npm run dev
