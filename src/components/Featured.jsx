@@ -22,9 +22,8 @@ export default function Featured(){
         <section>
             <h2 className="mb-8">Featured Products</h2>
 
-            <div className="w-full flex mx-auto featured-item overflow-x-auto gap-4 basis-52">
+            <div className="w-full flex mx-auto featured-item overflow-x-auto gap-5 box-content">
                 {items}
-                {/* <FeaturedItem/> */}
             </div>
         </section>
     )
