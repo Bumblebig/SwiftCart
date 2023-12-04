@@ -17,7 +17,8 @@ body {
   font-family: "Merriweather Sans", sans-serif;
 }
 
-.logo {
+.logo,
+.price {
   font-family: "Righteous", sans-serif;
 }
 
@@ -31,4 +32,8 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
+}
+
+.featured-item::-webkit-scrollbar {
+  display: none;
 }

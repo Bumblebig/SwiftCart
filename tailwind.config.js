@@ -5,8 +5,8 @@ export default {
     extend: {
       colors: {
         "hero-cream": "#fdf0d5",
-        "hero-heading": "#780000",
-        "hero-desc": "#C1121F",
+        "hero-heading": "#99582a",
+        "hero-desc": "#bb9457",
       },
       fontFamily: {
         custom: ["Merriweather Sans", "sans-serif"],
@@ -15,7 +15,7 @@ export default {
         heading: "1.15",
       },
       width: {
-        card: "600px",
+        95: "95%",
       },
     },
   },
