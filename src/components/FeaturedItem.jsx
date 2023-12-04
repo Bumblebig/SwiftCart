@@ -7,7 +7,7 @@ export default function FeaturedItem(){
         setIsImageLoaded(true)
     }
 
-    let errStyle = wrapperStyle = '';
+    let errStyle, wrapperStyle;
     const handleLoadError = function() {
         errStyle = "display: block";
         wrapperStyle = "display: flex; align-items: center; justify-content: center;";
