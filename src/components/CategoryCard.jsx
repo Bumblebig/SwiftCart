@@ -5,7 +5,7 @@ export default function CategoryCard({image, text}) {
     const style ={ 
         backgroundImage: `linear-gradient(180deg, rgba(4,4,4,0.27494747899159666) 58%, rgba(4,4,4,0.6867121848739496) 88%), url("${image}")`,
         backgroundRepeat: 'no-repeat',
-        backgroundSize: 'fit'
+        backgroundSize: 'cover'
     }
     return (
         <figure className="w-11/12 h-56  flex flex-col items-center justify-end p-3" style={style}>
