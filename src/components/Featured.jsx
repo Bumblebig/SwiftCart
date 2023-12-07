@@ -1,21 +1,25 @@
-import FeaturedItem from "./FeaturedItem";
+import ProductCard from "./ProductCard";
 
 export default function Featured(){
     const items = [
-        <FeaturedItem />,
-        <FeaturedItem />,
-        <FeaturedItem />,
-        <FeaturedItem />,
-        <FeaturedItem />,
-        <FeaturedItem />,
-        <FeaturedItem />,
-        <FeaturedItem />,
-        <FeaturedItem />,
-        <FeaturedItem />,
-        <FeaturedItem />,
-        <FeaturedItem />,
-        <FeaturedItem />,
-        <FeaturedItem />,
+        <ProductCard />,
+        <ProductCard />,
+        <ProductCard />,
+        <ProductCard />,
+        <ProductCard />,
+        <ProductCard />,
+        <ProductCard />,
+        <ProductCard />,
+        <ProductCard />,
+        <ProductCard />,
+        <ProductCard />,
+        <ProductCard />,
+        <ProductCard />,
+        <ProductCard />,
+        <ProductCard />,
+        <ProductCard />,
+        <ProductCard />,
+        <ProductCard />,
     ];
 
     return(
