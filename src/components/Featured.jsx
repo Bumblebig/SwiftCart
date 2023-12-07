@@ -23,7 +23,7 @@ export default function Featured(){
     ];
 
     return(
-        <section>
+        <section className="mb-9">
             <h2 className="mb-8">Featured Products</h2>
 
             <div className="w-full flex mx-auto featured-item overflow-x-auto gap-5 box-content">
