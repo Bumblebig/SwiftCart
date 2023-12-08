@@ -1,5 +1,5 @@
 import { Nav, Footer } from "./components";
-import { Home, About, Contact } from "./pages";
+import { Home, About, Contact, Login } from "./pages";
 
 function App() {
   return (
@@ -7,7 +7,8 @@ function App() {
       <Nav />
       {/* <Home /> */}
       {/* <About /> */}
-      <Contact />
+      {/* <Contact /> */}
+      <Login />
       <Footer />
     </main>
   );
