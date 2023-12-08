@@ -30,7 +30,7 @@ export default function Steps(){
             </div>
             <button className="mt-5 bg-hero-desc text-white px-3 py-2 text-sm">Shop now &rarr;</button>
 
-            <p className="text-sm mt-4"><strong>Note:</strong> Orders are processed via Mail and Whatsapp.</p>
+            <p className="text-sm my-4"><strong>Note:</strong> Orders are processed via Mail and Whatsapp.</p>
         </section>
     )
 }

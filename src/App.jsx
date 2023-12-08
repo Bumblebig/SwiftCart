@@ -1,4 +1,4 @@
-import { Nav } from './components';
+import { Nav, Footer } from './components';
 import { Home } from './pages';
 
 function App() {
@@ -7,6 +7,7 @@ function App() {
     <main className="font-custom">
       <Nav />
       <Home />
+      <Footer />
     </main>
   )
 }
