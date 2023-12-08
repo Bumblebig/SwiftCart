@@ -1,7 +1,7 @@
 export default function Login() {
   return (
-    <section className="min-h-screen flex items-center justify-center">
-      <form className="w-4/5 max-w-xl mx-auto p-10 py-16 rounded shadow-xl flex flex-col gap-4 xl:gap-6">
+    <section className="min-h-screen ">
+      <form className="w-4/5 max-w-xl mx-auto mt-28 p-10 py-16 rounded shadow-xl flex flex-col gap-4 xl:gap-6">
         <h3 className="font-bold text-lg mb-4 lg:text-xl xl:text-2xl">
           Login to Admin Panel
         </h3>
