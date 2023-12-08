@@ -5,10 +5,10 @@ function App() {
   return (
     <main className="font-custom">
       <Nav />
-      {/* <Home /> */}
+      <Home />
       {/* <About /> */}
       {/* <Contact /> */}
-      <Login />
+      {/* <Login /> */}
       <Footer />
     </main>
   );
