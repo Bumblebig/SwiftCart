@@ -24,7 +24,7 @@ export default function Steps(){
 
     return (
         <section>
-            <h2 className="mb-8">How it works</h2>
+            <h2 className="mb-8">How It works</h2>
             <div className="flex flex-col gap-8">
                 {steps}
             </div>
