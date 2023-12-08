@@ -15,7 +15,7 @@ export default function ProductCard() {
   };
 
   return (
-    <figure className="w-3/6 max-w-sm sm:w-2/6 box-content flex-shrink-0">
+    <figure className="w-3/6 max-w-sm box-content flex-shrink-0 sm:w-2/6 md:cursor-pointer lg:w-1/5">
       <div
         className={`block w-full rounded-t-md bg-gray-200 ${
           isImageLoaded ? "" : "h-60"

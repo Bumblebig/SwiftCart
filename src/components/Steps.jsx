@@ -26,7 +26,7 @@ export default function Steps() {
 
   return (
     <section className="pt-9 px-2">
-      <h2 className="mb-8 sm:text-lg">How It works</h2>
+      <h2 className="mb-8 sm:text-lg lg:mb-14">How It works</h2>
       <div className="flex flex-col gap-8">{steps}</div>
       <button className="mt-9 bg-hero-desc text-white px-3 py-2 text-sm sm:text-base">
         Start Exploring &rarr;

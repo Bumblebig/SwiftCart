@@ -6,7 +6,7 @@ export default function CategoryCard({ image, text }) {
   };
   return (
     <figure
-      className="w-11/12 h-60 max-w-sm sm:max-w-xl sm:h-80 flex flex-col items-center justify-end p-3"
+      className="w-11/12 h-60 max-w-sm flex flex-col items-center justify-end p-3 sm:max-w-xl sm:h-80  lg:w-96 lg:max-w-sm lg:h-56 lg:mb-3"
       style={style}
     >
       <div>

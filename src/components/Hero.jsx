@@ -2,16 +2,16 @@
 
 export default function Hero() {
   return (
-    <header className="pb-12">
+    <header className="pb-12 lg:pb-20">
       <div>
-        <h1 className="text-hero-heading text-3xl font-bold mt-10 mb-1 sm:mb-3 w-4/5 sm:w-8/12">
+        <h1 className="text-hero-heading text-3xl font-bold mt-10 mb-1 sm:mb-3 w-4/5 sm:w-8/12 lg:text-4xl lg:mt-16">
           Discover Unique Products Online
         </h1>
-        <p className="text-hero-desc text-sm sm:text-base mb-4">
+        <p className="text-hero-desc text-sm mb-4 sm:text-base lg:text-lg lg:mb-6">
           Your One-Stop Shop for Quality Goods.
         </p>
 
-        <p className="text-gray-700 leading-normal text-sm sm:text-base sm:w-11/12">
+        <p className="text-gray-700 leading-normal text-sm sm:text-base sm:w-11/12 lg:text-lg lg:w-9/12">
           Welcome to SwiftCart, where passion meets product. Our journey began
           with a vision to redefine the way you shop. Dive into a world of
           carefully curated items that reflect our commitment to quality, style,

@@ -1,9 +1,16 @@
 export default function Nav() {
   return (
-    <nav className="p-5 flex justify-between items-center">
-      <h1 className="logo text-xl">SwiftCart</h1>
+    <nav className="p-5 flex justify-between items-center lg:px-8">
+      <h1 className="logo text-xl lg:text-2xl">SwiftCart</h1>
 
-      <div className="flex items-center gap-5 flex-shrink-0">
+      <div className="hidden lg:flex items-center gap-8">
+        <li className="text-base cursor-pointer list-none">Shop</li>
+        <li className="text-base cursor-pointer list-none">About Us</li>
+        <li className="text-base cursor-pointer list-none">Contact</li>
+        <li className="text-base cursor-pointer list-none">Cart</li>
+      </div>
+
+      <div className="flex items-center gap-5 flex-shrink-0 lg:hidden">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
