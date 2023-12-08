@@ -40,8 +40,10 @@ export default function Categories() {
 
   return (
     <section className="mb-10 lg:mb-16">
-      <h2 className="mb-8 sm:text-lg lg:mb-14">Categories</h2>
-      <div className="m-auto flex sm:flex-shrink-0 flex-col items-center gap-7 sm:gap-10 lg:flex-row lg:flex-wrap lg:justify-center lg:items-stretch lg:gap-5">
+      <h2 className="mb-8 font-bold sm:text-lg lg:mb-14 xl:text-2xl 2xl:mb-12">
+        Categories
+      </h2>
+      <div className="m-auto flex sm:flex-shrink-0 flex-col items-center gap-7 sm:gap-10 lg:flex-row lg:flex-wrap lg:justify-center lg:items-stretch lg:gap-5 2xl:gap-7">
         {card}
       </div>
     </section>

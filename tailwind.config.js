@@ -16,6 +16,7 @@ export default {
       },
       width: {
         95: "95%",
+        100: "500px",
       },
     },
   },
