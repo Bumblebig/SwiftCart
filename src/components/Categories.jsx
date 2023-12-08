@@ -44,7 +44,7 @@ export default function Categories() {
     })
 
     return (
-        <section>
+        <section className="mb-9">
             <h2 className="mb-8">Categories</h2>
             <div className="m-auto flex flex-col items-center gap-7">
                 {card}
