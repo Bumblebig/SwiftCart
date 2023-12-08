@@ -1,6 +1,6 @@
 export default function Contact() {
   return (
-    <section className="px-5 pt-6 pb-10 sm:px-7 xl:px-10">
+    <section className="px-5 pt-6 pb-10 min-h-screen sm:px-7 xl:px-10">
       <h2 className="mb-8 font-bold sm:text-lg lg:mb-14 xl:text-2xl 2xl:mb-12">
         Contact Us
       </h2>
