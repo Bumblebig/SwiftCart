@@ -1,12 +1,13 @@
 import { Nav, Footer } from "./components";
-import { Home, About } from "./pages";
+import { Home, About, Contact } from "./pages";
 
 function App() {
   return (
     <main className="font-custom">
       <Nav />
       {/* <Home /> */}
-      <About />
+      {/* <About /> */}
+      <Contact />
       <Footer />
     </main>
   );
