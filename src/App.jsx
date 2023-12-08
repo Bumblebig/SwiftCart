@@ -1,15 +1,15 @@
-import { Nav, Footer } from './components';
-import { Home } from './pages';
+import { Nav, Footer } from "./components";
+import { Home, About } from "./pages";
 
 function App() {
-
   return (
     <main className="font-custom">
       <Nav />
-      <Home />
+      {/* <Home /> */}
+      <About />
       <Footer />
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
