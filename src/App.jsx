@@ -1,15 +1,15 @@
 import { Nav, MobileNav, Footer, CancelShade } from "./components";
 import { Home, About, Contact, Login } from "./pages";
-import { SharedStateProvider } from "./components/SharedNavState";
+import { SharedNavStateProvider } from "./components/SharedNavState";
 
 function App() {
   return (
     <main className="font-custom">
-      <SharedStateProvider>
+      <SharedNavStateProvider>
         <Nav />
         <MobileNav />
         <CancelShade />
-      </SharedStateProvider>
+      </SharedNavStateProvider>
       <Home />
       {/* <About /> */}
       {/* <Contact /> */}

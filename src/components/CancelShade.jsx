@@ -1,7 +1,7 @@
-import { useSharedState } from "./SharedNavState";
+import { useSharedNavState } from "./SharedNavState";
 
 export default function CancelShade() {
-  const { isMobileNavVisible, toggleMobileNav } = useSharedState();
+  const { isMobileNavVisible, toggleMobileNav } = useSharedNavState();
 
   return (
     <div

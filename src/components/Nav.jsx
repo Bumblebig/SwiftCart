@@ -1,7 +1,7 @@
-import { useSharedState } from "./SharedNavState";
+import { useSharedNavState } from "./SharedNavState";
 
 export default function Nav() {
-  const { toggleMobileNav } = useSharedState();
+  const { toggleMobileNav } = useSharedNavState();
 
   return (
     <nav className="p-5 flex justify-between items-center lg:px-8 xl:py-8">

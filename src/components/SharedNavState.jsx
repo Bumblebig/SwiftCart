@@ -1,17 +1,17 @@
 // SharedStateComponent.js
 import React, { useState, createContext, useContext } from "react";
 
-const SharedStateContext = createContext();
+const SharedNavStateContext = createContext();
 
-export const useSharedState = () => {
-  const context = useContext(SharedStateContext);
+export const useSharedNavState = () => {
+  const context = useContext(SharedNavStateContext);
   if (!context) {
     throw new Error("useSharedState must be used within a SharedStateProvider");
   }
   return context;
 };
 
-export const SharedStateProvider = ({ children }) => {
+export const SharedNavStateProvider = ({ children }) => {
   const [isMobileNavVisible, setMobileNavVisibility] = useState(false);
 
   const toggleMobileNav = () => {
@@ -19,10 +19,10 @@ export const SharedStateProvider = ({ children }) => {
   };
 
   return (
-    <SharedStateContext.Provider
+    <SharedNavStateContext.Provider
       value={{ isMobileNavVisible, toggleMobileNav }}
     >
       {children}
-    </SharedStateContext.Provider>
+    </SharedNavStateContext.Provider>
   );
 };

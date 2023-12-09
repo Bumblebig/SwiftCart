@@ -1,7 +1,7 @@
-import { useSharedState } from "./SharedNavState";
+import { useSharedNavState } from "./SharedNavState";
 
 export default function MobileNav() {
-  const { isMobileNavVisible, toggleMobileNav } = useSharedState();
+  const { isMobileNavVisible, toggleMobileNav } = useSharedNavState();
   const style = {
     visibility: `${isMobileNavVisible ? "visible" : "hidden"}`,
     transform: `${isMobileNavVisible ? "translateX(0%)" : "translateX(100%)"}`,
@@ -9,7 +9,7 @@ export default function MobileNav() {
 
   return (
     <aside
-      className="fixed h-full top-0 right-0 z-20 bg-white w-2/4 pt-24 flex flex-col gap-6 transition ease-in-out"
+      className="fixed h-full top-0 right-0 z-20 bg-white w-3/5 pt-24 flex flex-col gap-6 transition ease-in-out"
       style={style}
     >
       <li
