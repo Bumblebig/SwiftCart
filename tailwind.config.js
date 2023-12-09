@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        "hero-cream": "#fdf0d5",
         "hero-heading": "#99582a",
         "hero-desc": "#bb9457",
+        shade: "rgba(4,4,4,0.35057773109243695)",
       },
       fontFamily: {
         custom: ["Merriweather Sans", "sans-serif"],

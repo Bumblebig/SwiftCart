@@ -1,4 +1,8 @@
+import { useSharedState } from "./SharedNavState";
+
 export default function Nav() {
+  const { toggleMobileNav } = useSharedState();
+
   return (
     <nav className="p-5 flex justify-between items-center lg:px-8 xl:py-8">
       <h1 className="logo text-xl lg:text-2xl xl:text-3xl">SwiftCart</h1>
@@ -41,6 +45,7 @@ export default function Nav() {
           stroke-width="1.5"
           stroke="currentColor"
           className="w-7 h-8"
+          onClick={toggleMobileNav}
         >
           <path
             stroke-linecap="round"
