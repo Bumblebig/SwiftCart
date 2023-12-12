@@ -1,7 +1,9 @@
 import { useSharedNavState } from "./SharedNavState";
+import { useCartContext } from "./CartContext";
 
 export default function Nav() {
   const { toggleMobileNav } = useSharedNavState();
+  const { toggleCart } = useCartContext();
 
   return (
     <nav className="p-5 flex justify-between items-center lg:px-8 xl:py-8">
@@ -17,8 +19,14 @@ export default function Nav() {
         <li className="text-base cursor-pointer list-none xl:text-xl hover:font-bold">
           Contact
         </li>
-        <li className="text-base cursor-pointer list-none xl:text-xl hover:font-bold">
+        <li
+          className="text-base cursor-pointer list-none xl:text-xl hover:font-bold"
+          onClick={toggleCart}
+        >
           Cart
+        </li>
+        <li className="text-base cursor-pointer list-none xl:text-xl hover:font-bold">
+          Admin
         </li>
       </div>
 
@@ -30,6 +38,7 @@ export default function Nav() {
           stroke-width="1.5"
           stroke="currentColor"
           className="w-7 h-8 hidden md:block"
+          onClick={toggleCart}
         >
           <path
             stroke-linecap="round"

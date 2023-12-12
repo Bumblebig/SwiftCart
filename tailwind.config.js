@@ -6,6 +6,7 @@ export default {
       colors: {
         "hero-heading": "#99582a",
         "hero-desc": "#bb9457",
+        "hover-btn": "rgba(187,148,87,0.8631827731092436)",
         shade: "rgba(4,4,4,0.35057773109243695)",
       },
       fontFamily: {

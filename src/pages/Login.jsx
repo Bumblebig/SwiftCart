@@ -27,7 +27,7 @@ export default function Login() {
         <input
           type="submit"
           value="Login"
-          className="text-white bg-hero-desc cursor-pointer py-1 lg:text-lg xl:text-xl"
+          className="text-white bg-hero-desc cursor-pointer py-1 lg:text-lg xl:text-xl hover:bg-hover-btn"
         />
       </form>
     </section>

@@ -6,3 +6,5 @@ export { default as Featured } from "./Featured";
 export { default as Categories } from "./Categories";
 export { default as Steps } from "./Steps";
 export { default as Footer } from "./Footer";
+export { default as Cart } from "./Cart";
+export { default as CancelCart } from "./CancelCart";

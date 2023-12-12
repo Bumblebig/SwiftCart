@@ -13,7 +13,7 @@ export default function CategoryCard({ image, text }) {
         <p className="text-white text-center text-base sm:text-lg font-bold xl:text-xl">
           {text}
         </p>
-        <button className="mt-3 bg-hero-desc text-white px-3 py-2 text-sm sm:text-base xl:text-lg">
+        <button className="mt-3 bg-hero-desc text-white px-3 py-2 text-sm sm:text-base xl:text-lg hover:bg-hover-btn">
           Shop now &rarr;
         </button>
       </div>

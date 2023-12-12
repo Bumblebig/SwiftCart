@@ -1,14 +1,26 @@
-import { Nav, MobileNav, Footer, CancelShade } from "./components";
+import {
+  Nav,
+  MobileNav,
+  Footer,
+  CancelShade,
+  Cart,
+  CancelCart,
+} from "./components";
 import { Home, About, Contact, Login } from "./pages";
 import { SharedNavStateProvider } from "./components/SharedNavState";
+import { CartContextProvider } from "./components/CartContext";
 
 function App() {
   return (
     <main className="font-custom">
       <SharedNavStateProvider>
-        <Nav />
-        <MobileNav />
-        <CancelShade />
+        <CartContextProvider>
+          <Nav />
+          <MobileNav />
+          <CancelShade />
+          <Cart />
+          <CancelCart />
+        </CartContextProvider>
       </SharedNavStateProvider>
       <Home />
       {/* <About /> */}
