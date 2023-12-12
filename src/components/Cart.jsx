@@ -9,7 +9,7 @@ export default function Cart() {
   };
   return (
     <aside
-      className="fixed h-full top-0 right-0 z-20 px-5 pb-3 min-w-max bg-white w-3/5 pt-10 flex flex-col gap-6 transition ease-in-out md:w-3/6 lg:w-2/5 xl:w-1/3"
+      className="fixed h-full top-0 right-0 z-20 px-5 pb-3 min-w-max bg-white w-9/12 pt-10 flex flex-col gap-6 transition ease-in-out md:w-3/6 lg:w-2/5 xl:w-1/3"
       style={style}
     >
       <svg
