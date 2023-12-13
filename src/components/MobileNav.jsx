@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useSharedNavState } from "./SharedNavState";
 import { useCartContext } from "./CartContext";
 
@@ -14,24 +15,27 @@ export default function MobileNav() {
       className="fixed h-full top-0 right-0 z-20 bg-white w-3/5 pt-24 flex flex-col gap-6 transition ease-in-out md:w-3/6"
       style={style}
     >
-      <li
+      <Link
+        to="/shop"
         className="list-none text-lg cursor-pointer pl-7"
         onClick={() => toggleMobileNav()}
       >
         Shop
-      </li>
-      <li
+      </Link>
+      <Link
+        to="/about"
         className="list-none text-lg cursor-pointer pl-7"
         onClick={() => toggleMobileNav()}
       >
         About Us
-      </li>
-      <li
+      </Link>
+      <Link
+        to="/contact"
         className="list-none text-lg cursor-pointer pl-7"
         onClick={() => toggleMobileNav()}
       >
         Contact
-      </li>
+      </Link>
       <li
         className="list-none text-lg cursor-pointer pl-7 md:hidden"
         onClick={() => {
@@ -41,14 +45,15 @@ export default function MobileNav() {
       >
         Cart
       </li>
-      <li
+      <Link
+        to="/login"
         className="list-none text-lg cursor-pointer pl-7"
         onClick={() => {
           toggleMobileNav();
         }}
       >
         Admin
-      </li>
+      </Link>
     </aside>
   );
 }

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 export default function CategoryCard({ image, text }) {
   const style = {
     backgroundImage: `linear-gradient(180deg, rgba(4,4,4,0.27494747899159666) 49%, rgba(4,4,4,0.908000700280112) 81%), url("${image}")`,
@@ -13,9 +14,12 @@ export default function CategoryCard({ image, text }) {
         <p className="text-white text-center text-base sm:text-lg font-bold xl:text-xl">
           {text}
         </p>
-        <button className="mt-3 bg-hero-desc text-white px-3 py-2 text-sm sm:text-base xl:text-lg hover:bg-hover-btn">
+        <Link
+          to="/shop"
+          className="mt-3 block bg-hero-desc text-white px-3 py-2 text-sm sm:text-base xl:text-lg hover:bg-hover-btn"
+        >
           Shop now &rarr;
-        </button>
+        </Link>
       </div>
     </figure>
   );

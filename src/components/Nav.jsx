@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useSharedNavState } from "./SharedNavState";
 import { useCartContext } from "./CartContext";
 
@@ -7,27 +8,41 @@ export default function Nav() {
 
   return (
     <nav className="p-5 flex justify-between items-center lg:px-8 xl:py-8">
-      <h1 className="logo text-xl lg:text-2xl xl:text-3xl">SwiftCart</h1>
+      <Link to="/" className="logo text-xl lg:text-2xl xl:text-3xl">
+        SwiftCart
+      </Link>
 
       <div className="hidden lg:flex items-center gap-8 xl:gap-9">
-        <li className="text-base cursor-pointer list-none xl:text-xl hover:font-bold">
+        <Link
+          to="/shop"
+          className="text-base cursor-pointer list-none xl:text-xl hover:font-bold"
+        >
           Shop
-        </li>
-        <li className="text-base cursor-pointer list-none xl:text-xl hover:font-bold">
+        </Link>
+        <Link
+          to="/about"
+          className="text-base cursor-pointer list-none xl:text-xl hover:font-bold"
+        >
           About Us
-        </li>
-        <li className="text-base cursor-pointer list-none xl:text-xl hover:font-bold">
+        </Link>
+        <Link
+          to="/contact"
+          className="text-base cursor-pointer list-none xl:text-xl hover:font-bold"
+        >
           Contact
-        </li>
+        </Link>
         <li
           className="text-base cursor-pointer list-none xl:text-xl hover:font-bold"
           onClick={toggleCart}
         >
           Cart
         </li>
-        <li className="text-base cursor-pointer list-none xl:text-xl hover:font-bold">
+        <Link
+          to="/login"
+          className="text-base cursor-pointer list-none xl:text-xl hover:font-bold"
+        >
           Admin
-        </li>
+        </Link>
       </div>
 
       <div className="flex items-center gap-5 flex-shrink-0 lg:hidden">

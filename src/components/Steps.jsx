@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import StepBlock from "./StepBlock";
 
 export default function Steps() {
@@ -34,9 +35,12 @@ export default function Steps() {
       </div>
 
       <div className="flex justify-center items-center">
-        <button className="mt-9 bg-hero-desc w-max text-center mx-auto text-white px-3 py-2 text-sm sm:text-base xl:text-xl xl:mt-16 hover:bg-hover-btn">
+        <Link
+          to="/shop"
+          className="mt-9 block bg-hero-desc w-max text-center mx-auto text-white px-3 py-2 text-sm sm:text-base xl:text-xl xl:mt-16 hover:bg-hover-btn"
+        >
           Start Exploring &rarr;
-        </button>
+        </Link>
       </div>
 
       <p className="text-sm sm:text-base my-10 sm:my-12 xl:text-xl xl:my-20">

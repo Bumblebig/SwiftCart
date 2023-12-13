@@ -1,22 +1,36 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import vid from "../assets/SwiftCart.mp4";
 
 export default function About() {
+  const [isVideoLoaded, setVideoLoaded] = useState(false);
+  const handleLoad = function () {
+    setVideoLoaded(true);
+  };
+
   return (
     <section className="px-5 pt-6 pb-10 sm:px-7 xl:px-10">
       <h2 className="mb-8 font-bold sm:text-lg lg:mb-14 xl:text-2xl 2xl:mb-12">
         About SwiftCart
       </h2>
 
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="mx-auto h-auto w-2/3 max-w-xs"
+      <div
+        className={`w-2/3 mx-auto max-w-xs bg-gray-200 ${
+          isVideoLoaded ? "h-auto" : "h-72"
+        }`}
       >
-        <source src={vid} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="h-auto w-full"
+          onLoad={handleLoad}
+        >
+          <source src={vid} type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
 
       <p className="mt-16 mb-8 text-sm text-gray-800 leading-normal sm:text-base sm:w-5/6 md:w-3/4 xl:text-xl">
         Welcome to SwiftCart, where we turn shopping into an experience. At
@@ -87,9 +101,12 @@ export default function About() {
         </div>
       </div>
 
-      <button className="mt-9 bg-hero-desc w-max text-center mx-auto text-white px-3 py-2 text-sm sm:text-base xl:text-xl xl:mt-16">
+      <Link
+        to="/contact"
+        className="mt-9 block bg-hero-desc w-max text-center text-white px-3 py-2 text-sm sm:text-base xl:text-xl xl:mt-16 hover:bg-hover-btn"
+      >
         Contact Us &rarr;
-      </button>
+      </Link>
     </section>
   );
 }
