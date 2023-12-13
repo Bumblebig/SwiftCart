@@ -15,17 +15,17 @@ export default function ProductCard() {
   };
 
   return (
-    <figure className="w-3/6 max-w-sm box-content flex-shrink-0 sm:w-2/6 md:cursor-pointer lg:w-1/5">
+    <figure className="w-48 max-w-xs box-content flex-shrink-0 md:cursor-pointer lg:w-72">
       <div
         className={`block w-full rounded-t-md bg-gray-200 ${
-          isImageLoaded ? "" : "h-60 xl:h-64 2xl:h-80"
+          isImageLoaded ? "" : "h-48 lg:h-72 xl:h-64 2xl:h-80"
         }`}
         style={wrapperStyle}
       >
         <img
           src={prodImage}
           alt="sandals"
-          className="block w-full object-cover h-60 rounded-t-md xl:h-64 2xl:h-80"
+          className="block w-full object-cover h-48 lg:h-72 rounded-t-md xl:h-64 2xl:h-80"
           onLoad={handleImageLoad}
           onError={handleLoadError}
         />
@@ -36,10 +36,10 @@ export default function ProductCard() {
           Image could not be loaded
         </p>
       </div>
-      <h3 className="price text-xl mt-6 px-2 xl:text-2xl xl:mt-8 xl:px-4">
+      <h3 className="price text-lg mt-6 px-2 lg:text-xl xl:text-2xl xl:mt-8 xl:px-4">
         ₦5,000.00
       </h3>
-      <p className="text-sm text-gray-700 mt-1 px-2 pb-7 xl:text-lg xl:mt-2 xl:px-4 xl:pb-9">
+      <p className="text-xs text-gray-700 mt-1 px-2 pb-7 lg:text-base xl:text-lg xl:mt-2 xl:px-4 xl:pb-9">
         Bucaneer Sandals
       </p>
     </figure>

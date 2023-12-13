@@ -6,7 +6,7 @@ import {
   Cart,
   CancelCart,
 } from "./components";
-import { Home, About, Contact, Login } from "./pages";
+import { Home, About, Contact, Login, Shop } from "./pages";
 import { SharedNavStateProvider } from "./components/SharedNavState";
 import { CartContextProvider } from "./components/CartContext";
 
@@ -26,6 +26,7 @@ function App() {
       {/* <About /> */}
       {/* <Contact /> */}
       {/* <Login /> */}
+      {/* <Shop /> */}
       <Footer />
     </main>
   );
