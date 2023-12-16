@@ -4,7 +4,7 @@ import productIMG from "../assets/brown-sandals.jpg";
 export default function ProductDetails() {
   const { toggleCart } = useCartContext();
   return (
-    <section className="px-5 py-5 min-h-full sm:px-7 lg:pb-14 xl:px-10">
+    <section className="px-5 py-5 min-h-screen sm:px-7 lg:pb-14 xl:px-10">
       <div className="w-full flex flex-col gap-3 lg:flex-row lg:items-start lg:grid-cols-2 lg:flex-shrink-0 lg:flex-grow-0 lg:mt-8 lg:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-5xl xl:gap-10 2xl:max-w-6xl">
         <figure className="lg:w-2/3">
           <div className="w-5/6 mx-auto bg-gray-200 mb-8 h-80 sm:w-4/6 sm:h-96 lg:w-full lg:h-100 2xl:h-120">
