@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import prodImage from "../assets/brown-sandals.jpg";
 
 export default function ProductCard() {
@@ -15,7 +16,10 @@ export default function ProductCard() {
   };
 
   return (
-    <figure className="w-48 max-w-xs box-content flex-shrink-0 md:cursor-pointer lg:w-72">
+    <Link
+      to="/product"
+      className="w-48 max-w-xs box-content flex-shrink-0 md:cursor-pointer lg:w-72"
+    >
       <div
         className={`block w-full rounded-t-md bg-gray-200 ${
           isImageLoaded ? "" : "h-48 lg:h-72 xl:h-64 2xl:h-80"
@@ -40,8 +44,8 @@ export default function ProductCard() {
         ₦5,000.00
       </h3>
       <p className="text-xs text-gray-700 mt-1 px-2 pb-7 lg:text-base xl:text-lg xl:mt-2 xl:px-4 xl:pb-9">
-        Bucaneer Sandals
+        Birkenstock Sandals
       </p>
-    </figure>
+    </Link>
   );
 }

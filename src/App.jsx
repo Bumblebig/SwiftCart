@@ -7,7 +7,7 @@ import {
   Cart,
   CancelCart,
 } from "./components";
-import { Home, About, Contact, Login, Shop } from "./pages";
+import { Home, About, Contact, Login, Shop, ProductDetails } from "./pages";
 import { SharedNavStateProvider } from "./components/SharedNavState";
 import { CartContextProvider } from "./components/CartContext";
 
@@ -22,16 +22,17 @@ function App() {
             <CancelShade />
             <Cart />
             <CancelCart />
+
+            <Routes>
+              <Route path="/" exact element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/product" element={<ProductDetails />} />
+            </Routes>
           </CartContextProvider>
         </SharedNavStateProvider>
-
-        <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/shop" element={<Shop />} />
-        </Routes>
 
         <Footer />
       </main>

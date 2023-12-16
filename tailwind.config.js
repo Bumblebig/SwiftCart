@@ -19,6 +19,10 @@ export default {
         95: "95%",
         100: "500px",
       },
+      height: {
+        100: "450px",
+        120: "550px",
+      },
     },
   },
   plugins: [],
