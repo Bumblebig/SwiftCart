@@ -13,17 +13,35 @@ export const useCartContext = () => {
 
 export const CartContextProvider = ({ children }) => {
   const [isCartVisible, setCartVisibility] = useState(false);
+  const [isCheckoutVisible, setCheckoutVisibility] = useState(false);
 
   const toggleCart = () => {
     setCartVisibility((prev) => !prev);
+  };
+
+  const toggleCheckout = () => {
+    setCheckoutVisibility((prev) => !prev);
   };
 
   const closeCart = () => {
     setCartVisibility(false);
   };
 
+  const closeCheckout = () => {
+    setCheckoutVisibility(false);
+  };
+
   return (
-    <CartContext.Provider value={{ isCartVisible, toggleCart, closeCart }}>
+    <CartContext.Provider
+      value={{
+        isCartVisible,
+        isCheckoutVisible,
+        toggleCart,
+        toggleCheckout,
+        closeCart,
+        closeCheckout,
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

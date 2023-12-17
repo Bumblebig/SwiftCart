@@ -2,7 +2,7 @@ import CartItem from "./CartItem";
 import { useCartContext } from "./CartContext";
 
 export default function Cart() {
-  const { isCartVisible, closeCart } = useCartContext();
+  const { isCartVisible, closeCart, toggleCheckout } = useCartContext();
   const style = {
     visibility: `${isCartVisible ? "visible" : "hidden"}`,
     transform: `${isCartVisible ? "translateX(0%)" : "translateX(100%)"}`,
@@ -38,7 +38,10 @@ export default function Cart() {
           <h3 className="md:text-lg lg:text-xl">Total:</h3>
           <p className="md:text-lg lg:text-xl">₦5000</p>
         </div>
-        <button className="text-white block w-full bg-hero-desc cursor-pointer py-2 lg:text-lg xl:text-xl hover:bg-hover-btn">
+        <button
+          className="text-white block w-full bg-hero-desc cursor-pointer py-2 lg:text-lg xl:text-xl hover:bg-hover-btn"
+          onClick={toggleCheckout}
+        >
           Checkout
         </button>
       </div>

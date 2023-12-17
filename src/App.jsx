@@ -6,6 +6,7 @@ import {
   CancelShade,
   Cart,
   CancelCart,
+  Checkout,
 } from "./components";
 import { Home, About, Contact, Login, Shop, ProductDetails } from "./pages";
 import { SharedNavStateProvider } from "./components/SharedNavState";
@@ -22,6 +23,7 @@ function App() {
             <CancelShade />
             <Cart />
             <CancelCart />
+            <Checkout />
 
             <Routes>
               <Route path="/" exact element={<Home />} />
