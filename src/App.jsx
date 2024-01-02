@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { lazy, Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import {
   Nav,
   MobileNav,
@@ -7,38 +8,48 @@ import {
   Cart,
   CancelCart,
   Checkout,
+  Loader,
 } from "./components";
-import { Home, About, Contact, Login, Shop, ProductDetails } from "./pages";
 import { SharedNavStateProvider } from "./components/SharedNavState";
 import { CartContextProvider } from "./components/CartContext";
 
+// Lazy-loaded components
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const Login = lazy(() => import("./pages/Login"));
+const Shop = lazy(() => import("./pages/Shop"));
+const ProductDetails = lazy(() => import("./pages/ProductDetails"));
+
 function App() {
   return (
-    <BrowserRouter>
+    <Router>
       <main className="font-custom">
-        <SharedNavStateProvider>
-          <CartContextProvider>
-            <Nav />
-            <MobileNav />
-            <CancelShade />
-            <Cart />
-            <CancelCart />
-            <Checkout />
+        <Suspense fallback={<Loader />}>
+          <SharedNavStateProvider>
+            <CartContextProvider>
+              <Nav />
+              <MobileNav />
+              <CancelShade />
+              <Cart />
+              <CancelCart />
+              <Checkout />
 
-            <Routes>
-              <Route path="/" exact element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/contact" element={<Contact />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/shop" element={<Shop />} />
-              <Route path="/product" element={<ProductDetails />} />
-            </Routes>
-          </CartContextProvider>
-        </SharedNavStateProvider>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/shop" element={<Shop />} />
+                <Route path="/product" element={<ProductDetails />} />
+              </Routes>
+            </CartContextProvider>
+          </SharedNavStateProvider>
 
-        <Footer />
+          <Footer />
+        </Suspense>
       </main>
-    </BrowserRouter>
+    </Router>
   );
 }
 

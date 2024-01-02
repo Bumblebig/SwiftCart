@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import prodImage from "../assets/brown-sandals.jpg";
 
-export default function ProductCard() {
+export default function ProductCard({ id, name, price, img, category }) {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const handleImageLoad = function () {
     setIsImageLoaded(true);
@@ -14,6 +14,12 @@ export default function ProductCard() {
     wrapperStyle =
       "display: flex; align-items: center; justify-content: center;";
   };
+
+  // format currency
+  const amount = new Intl.NumberFormat("en-ng", {
+    style: "currency",
+    currency: "NGN",
+  }).format(price);
 
   return (
     <Link
@@ -27,8 +33,8 @@ export default function ProductCard() {
         style={wrapperStyle}
       >
         <img
-          src={prodImage}
-          alt="sandals"
+          src={img}
+          alt={category}
           className="block w-full object-cover h-48 lg:h-72 rounded-t-md xl:h-64 2xl:h-80"
           onLoad={handleImageLoad}
           onError={handleLoadError}
@@ -41,10 +47,10 @@ export default function ProductCard() {
         </p>
       </div>
       <h3 className="price text-lg mt-6 px-2 lg:text-xl xl:text-2xl xl:mt-8 xl:px-4">
-        ₦5,000.00
+        {amount}
       </h3>
       <p className="text-xs text-gray-700 mt-1 px-2 pb-7 lg:text-base xl:text-lg xl:mt-2 xl:px-4 xl:pb-9">
-        Birkenstock Sandals
+        {name}
       </p>
     </Link>
   );
