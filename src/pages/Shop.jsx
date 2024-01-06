@@ -7,6 +7,7 @@ import { getDocs, collection } from "firebase/firestore";
 export default function Shop() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const collectionName = "items";
 
   // fetch products from database
   useEffect(() => {
@@ -16,7 +17,7 @@ export default function Shop() {
         setLoading(true);
 
         // setting collection to retrieve
-        const colRef = collection(db, "items");
+        const colRef = collection(db, collectionName);
 
         // Fetching data
         const snapshot = await getDocs(colRef);
@@ -46,6 +47,7 @@ export default function Shop() {
       name={item.name}
       price={item.price}
       img={item.imageURL}
+      colName={collectionName}
     />
   ));
 

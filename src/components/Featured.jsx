@@ -7,6 +7,7 @@ import ProductCard from "./ProductCard";
 export default function Featured() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const collectionName = "featured";
 
   // Fetch data from firestore
   useEffect(() => {
@@ -15,7 +16,7 @@ export default function Featured() {
         // Toggle loading animation while getting data
         setLoading(true);
 
-        const colRef = collection(db, "featured");
+        const colRef = collection(db, collectionName);
         const snapshots = await getDocs(colRef);
         const returnedData = snapshots.docs.map((doc) => {
           return { id: doc.id, ...doc.data() };
@@ -39,6 +40,7 @@ export default function Featured() {
       name={item.name}
       price={item.price}
       img={item.imageURL}
+      colName={collectionName}
     />
   ));
 

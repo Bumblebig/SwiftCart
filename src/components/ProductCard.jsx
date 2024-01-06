@@ -1,8 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import prodImage from "../assets/brown-sandals.jpg";
 
-export default function ProductCard({ id, name, price, img, category }) {
+export default function ProductCard({
+  id,
+  name,
+  price,
+  img,
+  category,
+  colName,
+}) {
   const [isImageLoaded, setIsImageLoaded] = useState(false);
   const handleImageLoad = function () {
     setIsImageLoaded(true);
@@ -23,7 +29,7 @@ export default function ProductCard({ id, name, price, img, category }) {
 
   return (
     <Link
-      to="/product"
+      to={`/product/${colName}/${id}`}
       className="w-48 max-w-xs box-content flex-shrink-0 md:cursor-pointer lg:w-72"
     >
       <div
