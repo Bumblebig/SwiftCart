@@ -1,7 +1,43 @@
+import { useState } from "react";
 import { useCartContext } from "./CartContext";
 
 export default function Checkout() {
   const { isCheckoutVisible, closeCheckout } = useCartContext();
+
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phoneNumber: "",
+    whatsappNumber: "",
+  });
+
+  const handleSubmit = function (e) {
+    e.preventDefault();
+    // Access form data from formData state
+    console.log(formData);
+
+    // Reset the form after submission
+    setFormData({
+      name: "",
+      email: "",
+      phoneNumber: "",
+      whatsappNumber: "",
+    });
+  };
+
+  const handleClose = function () {
+    closeCheckout();
+  };
+
+  // Handle input changes and update the formData state
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   return (
     <section
       className={`w-full z-30 h-screen fixed top-0 overflow-auto ${
@@ -18,7 +54,7 @@ export default function Checkout() {
             strokeWidth="1.5"
             stroke="black"
             className="w-6 h-6 cursor-pointer xl:w-7 xl:h-7"
-            onClick={closeCheckout}
+            onClick={handleClose}
           >
             <path
               strokeLinecap="round"
@@ -28,11 +64,14 @@ export default function Checkout() {
           </svg>
         </div>
 
-        <form className="flex flex-col gap-4 xl:gap-">
+        <form className="flex flex-col gap-4 xl:gap-6" onSubmit={handleSubmit}>
           <label className="flex flex-col gap-1 lg:text-lg xl:text-xl">
             Name:
             <input
               type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
               className="block border border-solid border-hero-desc h-8 p-2 focus:outline-none focus:border-2 xl:h-10"
               required
             />
@@ -41,6 +80,9 @@ export default function Checkout() {
             Email:
             <input
               type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
               className="block border border-solid border-hero-desc h-8 p-2 focus:outline-none focus:border-2 xl:h-10"
               required
             />
@@ -48,7 +90,10 @@ export default function Checkout() {
           <label className="flex flex-col gap-1 lg:text-lg xl:text-xl">
             Phone Number:
             <input
-              type="tel"
+              type="number"
+              name="phoneNumber"
+              value={formData.phoneNumber}
+              onChange={handleInputChange}
               className="block border border-solid border-hero-desc h-8 p-2 focus:outline-none focus:border-2 xl:h-10"
               required
             />
@@ -56,7 +101,10 @@ export default function Checkout() {
           <label className="flex flex-col gap-1 lg:text-lg xl:text-xl">
             Whatsapp Number:
             <input
-              type="tel"
+              type="number"
+              name="whatsappNumber"
+              value={formData.whatsappNumber}
+              onChange={handleInputChange}
               className="block border border-solid border-hero-desc h-8 p-2 focus:outline-none focus:border-2 xl:h-10"
               required
             />
