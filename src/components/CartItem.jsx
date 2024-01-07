@@ -1,19 +1,10 @@
-import { useState } from "react";
-import prodImage from "../assets/brown-sandals.jpg";
-
-export default function CartItem() {
-  const [qty, setQty] = useState(1);
-
-  const increaseQty = function () {
-    setQty((prev) => prev++);
-  };
-
-  const decreaseQty = function () {
-    setQty((prev) => {
-      if (prev > 0) return prev--;
-      else return prev;
-    });
-  };
+export default function CartItem({ handleDelete, item }) {
+  const { name, price, size, imgURL } = item;
+  // Format currency
+  const amount = new Intl.NumberFormat("en-ng", {
+    style: "currency",
+    currency: "NGN",
+  }).format(price);
   return (
     <div className="flex flex-shrink-0 items-center gap-2 p-2 relative xl:gap-4">
       <svg
@@ -22,7 +13,8 @@ export default function CartItem() {
         viewBox="0 0 24 24"
         strokeWidth="1.5"
         stroke="currentColor"
-        className="w-4 h-4 absolute right-1 top-1 cursor-pointer sm:w-5 sm:h-5 xl:w-6 xl:h-6"
+        className="w-4 h-4 absolute right-1 top-0 cursor-pointer sm:w-5 sm:h-5 xl:w-6 xl:h-6"
+        onClick={handleDelete}
       >
         <path
           strokeLinecap="round"
@@ -31,31 +23,14 @@ export default function CartItem() {
         />
       </svg>
 
-      <img src={prodImage} alt="product" className="w-24 h-auto rounded" />
+      <img src={imgURL} alt={name} className="w-24 h-auto rounded" />
       <div className="flex flex-col gap-1">
-        <p className="text-sm sm:text-base xl:text-lg leading-tight">
-          Bucanneer Sandals
-        </p>
+        <p className="text-sm sm:text-base xl:text-lg leading-tight">{name}</p>
         <p className="text-xs sm:text-sm xl:text-base">
-          <strong className="mr-1">Size: </strong> 40
+          <strong className="mr-1">Size: </strong> {size}
         </p>
-        <p className="text-xs sm:text-sm xl:text-base">
-          <strong className="mr-1">Qty: </strong>
-          <span
-            className="cursor-pointer px-2 mr-3 bg-black text-white"
-            onClick={decreaseQty}
-          >
-            -
-          </span>{" "}
-          <span>{qty}</span>
-          <span
-            className="cursor-pointer px-2 ml-3 bg-black text-white"
-            onClick={increaseQty}
-          >
-            +
-          </span>
-        </p>
-        <p className="font-bold">₦5000</p>
+
+        <p className="font-bold">{amount}</p>
       </div>
     </div>
   );

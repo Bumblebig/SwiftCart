@@ -14,6 +14,7 @@ export const useCartContext = () => {
 export const CartContextProvider = ({ children }) => {
   const [isCartVisible, setCartVisibility] = useState(false);
   const [isCheckoutVisible, setCheckoutVisibility] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
 
   const toggleCart = () => {
     setCartVisibility((prev) => !prev);
@@ -31,6 +32,18 @@ export const CartContextProvider = ({ children }) => {
     setCheckoutVisibility(false);
   };
 
+  const addToCart = (item) => {
+    setCartItems((prevItems) => [...prevItems, item]);
+  };
+
+  const removeFromCart = (itemId) => {
+    setCartItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
+  };
+
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -40,6 +53,10 @@ export const CartContextProvider = ({ children }) => {
         toggleCheckout,
         closeCart,
         closeCheckout,
+        cartItems,
+        addToCart,
+        removeFromCart,
+        clearCart,
       }}
     >
       {children}
