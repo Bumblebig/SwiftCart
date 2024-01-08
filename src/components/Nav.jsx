@@ -14,7 +14,7 @@ export default function Nav() {
 
       <div className="hidden lg:flex items-center gap-8 xl:gap-9">
         <Link
-          to="/shop"
+          to={`/shop/${"All"}`}
           className="text-base cursor-pointer list-none xl:text-xl hover:font-bold"
         >
           Shop

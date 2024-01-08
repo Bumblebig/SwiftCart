@@ -16,7 +16,7 @@ export default function MobileNav() {
       style={style}
     >
       <Link
-        to="/shop"
+        to={`/shop/${"All"}`}
         className="list-none text-lg cursor-pointer pl-7"
         onClick={() => toggleMobileNav()}
       >

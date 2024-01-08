@@ -11,31 +11,43 @@ export default function Categories() {
       id: 1,
       imgURL: Sneakers,
       desc: "Sneakers",
+      category: "sneakers",
     },
     {
       id: 2,
       imgURL: Sandals,
       desc: "Sandals",
+      category: "sandals",
     },
     {
       id: 3,
       imgURL: Slides,
       desc: "Slides",
+      category: "slides",
     },
     {
       id: 4,
       imgURL: Crocs,
       desc: "Crocs",
+      category: "crocs",
     },
     {
       id: 5,
       imgURL: Flips,
       desc: "Flip-Flops",
+      category: "flip-flop",
     },
   ];
 
   const card = data.map((item) => {
-    return <CategoryCard key={item.id} image={item.imgURL} text={item.desc} />;
+    return (
+      <CategoryCard
+        key={item.id}
+        image={item.imgURL}
+        text={item.desc}
+        ctgy={item.category}
+      />
+    );
   });
 
   return (

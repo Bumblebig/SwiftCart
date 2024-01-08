@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { TailSpin } from "react-loader-spinner";
+import { useParams } from "react-router-dom";
 import { ProductCard } from "../components";
 import { db } from "../firebase-config";
 import { getDocs, collection } from "firebase/firestore";
@@ -7,6 +8,9 @@ import { getDocs, collection } from "firebase/firestore";
 export default function Shop() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [title, setTitle] = useState("All");
+  const { ctgy } = useParams();
+
   const collectionName = "items";
 
   // fetch products from database
@@ -27,8 +31,20 @@ export default function Shop() {
           return { ...doc.data(), id: doc.id };
         });
 
-        // Pushing data to state
-        setData(returnedData);
+        // Filter shop Content based on category
+        if (ctgy === "All") {
+          // Pushing data to state
+          setData(returnedData);
+
+          // setting title
+          setTitle("All");
+        } else {
+          const filtered = returnedData.filter(
+            (item) => item.category === ctgy
+          );
+          setData(filtered);
+          setTitle(ctgy);
+        }
       } catch (error) {
         console.error("retrieving error: ", error.message);
       } finally {
@@ -54,7 +70,7 @@ export default function Shop() {
   return (
     <section className="px-3 py-4 mt-5 sm:px-6 xl:px-9">
       <p className="text-right text-md mr-6 font-bold text-gray-600 lg:text-lg xl:text-xl">
-        All
+        {title.replace(title[0], title[0].toUpperCase())}
       </p>
       <div className="flex flex-wrap grid-rows-5 justify-evenly mt-6 gap-1 py-3 items-stretch">
         {/* Check for state and render spinner or component */}
@@ -69,8 +85,12 @@ export default function Shop() {
             wrapperStyle={{}}
             wrapperClass="mx-auto my-20"
           />
-        ) : (
+        ) : items.length >= 1 ? (
           items
+        ) : (
+          <p className="text-base italic mt-20 text-gray-700 text-center lg:text-md">
+            No data returned
+          </p>
         )}
       </div>
     </section>

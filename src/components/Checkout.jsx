@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useCartContext } from "./CartContext";
 
 export default function Checkout() {
-  const { isCheckoutVisible, closeCheckout } = useCartContext();
+  const { isCheckoutVisible, closeCheckout, cartItems } = useCartContext();
+  const [submitted, setSubmitted] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -14,7 +15,7 @@ export default function Checkout() {
   const handleSubmit = function (e) {
     e.preventDefault();
     // Access form data from formData state
-    console.log(formData);
+    console.log(cartItems);
 
     // Reset the form after submission
     setFormData({
@@ -23,10 +24,13 @@ export default function Checkout() {
       phoneNumber: "",
       whatsappNumber: "",
     });
+
+    setSubmitted(true);
   };
 
   const handleClose = function () {
     closeCheckout();
+    setSubmitted(false);
   };
 
   // Handle input changes and update the formData state
@@ -64,7 +68,10 @@ export default function Checkout() {
           </svg>
         </div>
 
-        <form className="flex flex-col gap-4 xl:gap-6" onSubmit={handleSubmit}>
+        <form
+          className={`${submitted ? "hidden" : "flex"} flex-col gap-4 xl:gap-6`}
+          onSubmit={handleSubmit}
+        >
           <label className="flex flex-col gap-1 lg:text-lg xl:text-xl">
             Name:
             <input
@@ -116,6 +123,13 @@ export default function Checkout() {
             value="Complete Checkout"
           />
         </form>
+
+        <div className={submitted ? "block" : "hidden"}>
+          <p className="xl:text-lg">
+            Order completed successfully. We'll reach out to you via
+            WhatsApp/Email. Thanks for shopping with us!
+          </p>
+        </div>
       </div>
       <div className="w-full h-full overflow-hidden fixed top-0 z-40 backdrop-blur-sm bg-shade"></div>
     </section>

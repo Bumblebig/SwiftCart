@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-export default function CategoryCard({ image, text }) {
+export default function CategoryCard({ image, text, ctgy }) {
   const style = {
     backgroundImage: `linear-gradient(180deg, rgba(4,4,4,0.27494747899159666) 49%, rgba(4,4,4,0.908000700280112) 81%), url("${image}")`,
     backgroundRepeat: "no-repeat",
@@ -15,7 +15,7 @@ export default function CategoryCard({ image, text }) {
           {text}
         </p>
         <Link
-          to="/shop"
+          to={`/shop/${ctgy}`}
           className="mt-3 block bg-hero-desc text-white px-3 py-2 text-sm sm:text-base xl:text-lg hover:bg-hover-btn"
         >
           Shop now &rarr;
