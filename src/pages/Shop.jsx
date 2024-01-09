@@ -68,7 +68,7 @@ export default function Shop() {
   ));
 
   return (
-    <section className="px-3 py-4 mt-5 sm:px-6 xl:px-9">
+    <section className="px-3 min-h-full py-4 mt-5 sm:px-6 xl:px-9 xl:h-auto">
       <p className="text-right text-md mr-6 font-bold text-gray-600 lg:text-lg xl:text-xl">
         {title.replace(title[0], title[0].toUpperCase())}
       </p>

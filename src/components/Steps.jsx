@@ -36,7 +36,7 @@ export default function Steps() {
 
       <div className="flex justify-center items-center">
         <Link
-          to="/shop"
+          to="/shop/All"
           className="mt-9 block bg-hero-desc w-max text-center mx-auto text-white px-3 py-2 text-sm sm:text-base xl:text-xl xl:mt-16 hover:bg-hover-btn"
         >
           Start Exploring &rarr;

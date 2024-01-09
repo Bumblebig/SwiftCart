@@ -62,10 +62,12 @@ export default function Featured() {
             wrapperStyle={{}}
             wrapperClass="mx-auto"
           />
+        ) : items.length >= 1 ? (
+          items
         ) : (
-          items.length >= 1 ? (items) : (<p className="text-base italic my-6 text-gray-700 text-center lg:text-md">
+          <p className="text-base w-max mx-auto italic my-6 text-gray-700 text-center lg:text-md">
             No data returned
-          </p>)
+          </p>
         )}
       </div>
     </section>
