@@ -1,21 +1,56 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useCartContext } from "./CartContext";
 
 export default function Checkout() {
   const { isCheckoutVisible, closeCheckout, cartItems } = useCartContext();
   const [submitted, setSubmitted] = useState(false);
+  const [orders, setOrders] = useState("");
+  const [totalPrice, setTotalPrice] = useState("");
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phoneNumber: "",
     whatsappNumber: "",
+    message: orders,
+    total: totalPrice,
   });
+
+  const formatCur = function (amount) {
+    return new Intl.NumberFormat("en-ng", {
+      style: "currency",
+      currency: "NGN",
+    }).format(amount);
+  };
+
+  // Formatting order string
+  const orderData = function () {
+    const total = cartItems.reduce((acc, item) => acc + item.price, 0);
+    const amount = formatCur(total);
+    setTotalPrice(amount);
+
+    let str = "";
+    cartItems.forEach((item) => {
+      str += `Image: ${item.imgURL}\n Name: ${item.name}\n Size: ${
+        item.size
+      }\n Price: ${formatCur(item.price)}\n\n\n`;
+    });
+
+    console.log("str variable: ", str);
+    setOrders(str);
+    setFormData((prev) => {
+      return { ...prev, message: orders, total: totalPrice };
+    });
+  };
 
   const handleSubmit = function (e) {
     e.preventDefault();
     // Access form data from formData state
-    console.log(cartItems);
+    orderData(); // Call orderData only once after initial render
+
+    console.log("state var: ", orders);
+
+    console.log("form data: ", formData);
 
     // Reset the form after submission
     setFormData({
@@ -23,6 +58,8 @@ export default function Checkout() {
       email: "",
       phoneNumber: "",
       whatsappNumber: "",
+      message: orders,
+      total: totalPrice,
     });
 
     setSubmitted(true);

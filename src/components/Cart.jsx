@@ -9,6 +9,7 @@ export default function Cart() {
     cartItems,
     removeFromCart,
   } = useCartContext();
+
   const style = {
     visibility: `${isCartVisible ? "visible" : "hidden"}`,
     transform: `${isCartVisible ? "translateX(0%)" : "translateX(100%)"}`,
