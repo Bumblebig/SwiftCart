@@ -12,8 +12,6 @@ export default function Checkout() {
     email: "",
     phoneNumber: "",
     whatsappNumber: "",
-    message: orders,
-    total: totalPrice,
   });
 
   const formatCur = function (amount) {
@@ -36,11 +34,8 @@ export default function Checkout() {
       }\n Price: ${formatCur(item.price)}\n\n\n`;
     });
 
-    console.log("str variable: ", str);
-    setOrders(str);
-    setFormData((prev) => {
-      return { ...prev, message: orders, total: totalPrice };
-    });
+    const data = { ...formData, message: str, total: amount };
+    console.log(data);
   };
 
   const handleSubmit = function (e) {
@@ -48,18 +43,12 @@ export default function Checkout() {
     // Access form data from formData state
     orderData(); // Call orderData only once after initial render
 
-    console.log("state var: ", orders);
-
-    console.log("form data: ", formData);
-
     // Reset the form after submission
     setFormData({
       name: "",
       email: "",
       phoneNumber: "",
       whatsappNumber: "",
-      message: orders,
-      total: totalPrice,
     });
 
     setSubmitted(true);
