@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import { useCartContext } from "./CartContext";
 
 export default function Checkout() {
@@ -34,8 +35,39 @@ export default function Checkout() {
       }\n Price: ${formatCur(item.price)}\n\n\n`;
     });
 
-    const data = { ...formData, message: str, total: amount };
-    console.log(data);
+    const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    // Create a form element
+    const form = document.createElement("form");
+    form.style.display = "none"; // Hide the form
+
+    // Add hidden input fields for additional data
+    Object.entries({ ...formData, message: str, total: amount }).forEach(
+      ([key, value]) => {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = value;
+        form.appendChild(input);
+      }
+    );
+
+    document.body.appendChild(form);
+
+    // Use sendForm with the dynamically created form element
+    emailjs.sendForm(serviceID, templateID, form, publicKey).then(
+      (result) => {
+        console.log(result.text);
+      },
+      (error) => {
+        console.log(error.text);
+      }
+    );
+
+    // Remove the form element after submission
+    document.body.removeChild(form);
   };
 
   const handleSubmit = function (e) {
