@@ -27,7 +27,7 @@ This project is an e-commerce website built using React, Firebase, and Tailwind 
 1. **Clone the Repository:**
 
    ```bash
-   git clone https://github.com/your-username/e-commerce-website.git
+   git clone https://github.com/Bumblebig/SwiftCart.git
    ```
 
 2. **Navigate to the project directory**
