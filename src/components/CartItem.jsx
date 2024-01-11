@@ -23,7 +23,11 @@ export default function CartItem({ handleDelete, item }) {
         />
       </svg>
 
-      <img src={imgURL} alt={name} className="w-24 h-auto rounded" />
+      <img
+        src={imgURL}
+        alt={name}
+        className="w-24 h-[100px] rounded object-cover"
+      />
       <div className="flex flex-col gap-1">
         <p className="text-sm sm:text-base xl:text-lg leading-tight">{name}</p>
         <p className="text-xs sm:text-sm xl:text-base">
