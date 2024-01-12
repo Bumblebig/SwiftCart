@@ -55,7 +55,7 @@ export default function Checkout() {
 
     document.body.appendChild(form);
 
-    // Use sendForm with the dynamically created form element
+    // Use senForm with the form element 
     emailjs.sendForm(serviceID, templateID, form, publicKey).then(
       (result) => {},
       (error) => {
@@ -69,8 +69,8 @@ export default function Checkout() {
 
   const handleSubmit = function (e) {
     e.preventDefault();
-    // Access form data from formData state
-    orderData(); // Call orderData only once after initial render
+    // Call the function and send email
+    orderData();
 
     // Reset the form after submission
     setFormData({
