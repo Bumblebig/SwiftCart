@@ -3,18 +3,18 @@ import emailjs from "@emailjs/browser";
 import { useCartContext } from "./CartContext";
 
 export default function Checkout() {
-  const { isCheckoutVisible, closeCheckout, cartItems } = useCartContext();
+  const { isCheckoutVisible, closeCheckout, cartItems, clearCart } =
+    useCartContext();
   const [submitted, setSubmitted] = useState(false);
-  const [orders, setOrders] = useState("");
-  const [totalPrice, setTotalPrice] = useState("");
 
   const [formData, setFormData] = useState({
-    name: "",
+    username: "",
     email: "",
     phoneNumber: "",
     whatsappNumber: "",
   });
 
+  // Formatting price
   const formatCur = function (amount) {
     return new Intl.NumberFormat("en-ng", {
       style: "currency",
@@ -26,7 +26,6 @@ export default function Checkout() {
   const orderData = function () {
     const total = cartItems.reduce((acc, item) => acc + item.price, 0);
     const amount = formatCur(total);
-    setTotalPrice(amount);
 
     let str = "";
     cartItems.forEach((item) => {
@@ -58,9 +57,7 @@ export default function Checkout() {
 
     // Use sendForm with the dynamically created form element
     emailjs.sendForm(serviceID, templateID, form, publicKey).then(
-      (result) => {
-        console.log(result.text);
-      },
+      (result) => {},
       (error) => {
         console.log(error.text);
       }
@@ -77,13 +74,19 @@ export default function Checkout() {
 
     // Reset the form after submission
     setFormData({
-      name: "",
+      Username: "",
       email: "",
       phoneNumber: "",
       whatsappNumber: "",
     });
 
     setSubmitted(true);
+
+    // Clear Cart items
+    clearCart();
+
+    // Clear console
+    console.clear();
   };
 
   const handleClose = function () {
@@ -134,8 +137,8 @@ export default function Checkout() {
             Name:
             <input
               type="text"
-              name="name"
-              value={formData.name}
+              name="username"
+              value={formData.username}
               onChange={handleInputChange}
               className="block border border-solid border-hero-desc h-8 p-2 focus:outline-none focus:border-2 xl:h-10"
               required
@@ -155,7 +158,7 @@ export default function Checkout() {
           <label className="flex flex-col gap-1 lg:text-lg xl:text-xl">
             Phone Number:
             <input
-              type="number"
+              type="tel"
               name="phoneNumber"
               value={formData.phoneNumber}
               onChange={handleInputChange}
@@ -166,7 +169,7 @@ export default function Checkout() {
           <label className="flex flex-col gap-1 lg:text-lg xl:text-xl">
             Whatsapp Number:
             <input
-              type="number"
+              type="tel"
               name="whatsappNumber"
               value={formData.whatsappNumber}
               onChange={handleInputChange}
