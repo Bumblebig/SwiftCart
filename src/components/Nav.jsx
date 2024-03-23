@@ -52,7 +52,7 @@ export default function Nav() {
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          className="w-7 h-8 hidden md:block"
+          className="cart w-7 h-8 hidden md:block"
           onClick={toggleCart}
         >
           <path
@@ -68,7 +68,7 @@ export default function Nav() {
           viewBox="0 0 24 24"
           strokeWidth="1.5"
           stroke="currentColor"
-          className="w-7 h-8"
+          className="w-7 h-8 hamburger"
           onClick={toggleMobileNav}
         >
           <path

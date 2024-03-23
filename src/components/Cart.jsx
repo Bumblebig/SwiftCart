@@ -20,6 +20,7 @@ export default function Cart() {
     style: "currency",
     currency: "NGN",
   }).format(total);
+
   return (
     <aside
       className="fixed h-full top-0 right-0 z-20 px-5 pb-6 min-w-max bg-white w-9/12 pt-10 flex flex-col gap-8 justify-between transition ease-in-out md:w-3/6 lg:w-2/5 xl:w-1/3"

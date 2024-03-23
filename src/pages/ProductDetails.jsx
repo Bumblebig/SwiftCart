@@ -8,7 +8,8 @@ import { db } from "../firebase-config";
 export default function ProductDetails() {
   const [prod, setProd] = useState({});
   const [loading, setLoading] = useState(true);
-  const { toggleCart, addToCart } = useCartContext();
+  const [idExists, setIdExists] = useState(false);
+  const { toggleCart, addToCart, cartItems } = useCartContext();
   const { colName, id } = useParams();
 
   useEffect(() => {
@@ -63,11 +64,42 @@ export default function ProductDetails() {
         size: activeSize, // Assuming activeSize is the selected size
       };
 
-      // Pass the cart item to the addToCart function
-      addToCart(cartItem);
+      // Check if item is in cart already before adding
+      let idCheck;
 
-      // show cart
-      toggleCart();
+      /*  check for item in cart to set initial state of idCheck
+       *  loop over and break if any is false not to get state overriden by other items
+       */
+      if (cartItems.length >= 1) {
+        for (let i = 0; i < cartItems.length; i++) {
+          if (cartItems[i].id === cartItem.id) {
+            idCheck = false;
+            break;
+          } else {
+            idCheck = true;
+          }
+        }
+      } else idCheck = true;
+
+      // Pass the cart item to the addToCart function
+      if (idCheck) {
+        // toggle state for double entry message
+        setIdExists(false);
+
+        // add item to cart
+        addToCart(cartItem);
+
+        // show cart
+        toggleCart();
+      } else {
+        // toggle state for double entry message
+        setIdExists(true);
+
+        // timeout to toggle off the message
+        setTimeout(function () {
+          setIdExists(false);
+        }, 4000);
+      }
     } else {
       setInfoState(false);
     }
@@ -94,7 +126,15 @@ export default function ProductDetails() {
               infoState ? "opacity-0" : "opacity-100"
             }`}
           >
-            Select a size!
+            Select a size
+          </p>
+
+          <p
+            className={`w-max py-2 px-2 fixed top-12 z-50 bg-white left-2/4 -translate-x-2/4 shadow-md rounded-md text-base transition-all lg:text-xl 2xl:text-2xl ${
+              idExists ? "opacity-100" : "opacity-0"
+            }`}
+          >
+            Item already in cart
           </p>
           <div className="w-full flex flex-col gap-3 lg:flex-row lg:items-start lg:grid-cols-2 lg:flex-shrink-0 lg:flex-grow-0 lg:mt-8 lg:gap-6 lg:max-w-4xl lg:mx-auto xl:max-w-5xl xl:gap-10 2xl:max-w-6xl">
             <figure className="lg:w-2/3">

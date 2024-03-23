@@ -27,8 +27,14 @@ function App() {
       <main className="font-custom">
         {/* UI spinner on fetching */}
         <Suspense fallback={<Loader />}>
+
+          {/* SHaredStateContext */}
           <SharedNavStateProvider>
             <CartContextProvider>
+
+              {/* Main page elements/content */}
+
+              {/* Fixed/absolute components */}
               <Nav />
               <MobileNav />
               <CancelShade />
@@ -36,6 +42,7 @@ function App() {
               <CancelCart />
               <Checkout />
 
+              {/* Routes to link to other pages */}
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
